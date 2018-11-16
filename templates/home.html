@@ -1,0 +1,27 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Super-Herois</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  </head>
+  <body>
+    <h1>WikiHerois</h1>
+    <form method='GET' action=''>
+      <input type='text' name='pesquisa' placeholder='Pesquisar personagens' value='{{ request.GET.pesquisa }}'/>
+      <input type='submit' value='Pesquisar'/>
+    <p><a href="{% url 'model_upload' %}">Adicionar...</a></p>
+    {% for pre in posts %}
+      {{ pre.name }}
+      {% if personagem.is_favorite %}
+        <img src="{{ pre.image.url }}" width=200px, height=200px> <br>
+      {% endif %}
+      <img src="{{ pre.image.url }}" width=500px, height=500px> <br>
+      {{ pre.description }} <br>
+      <p><a href="{% url 'model_edit' pre.id %}">Editar personagem</a></p>
+      <p><a href="/delete/{{pre.id}}">Apagar</a></p>
+      <p><a href="/favorites/">Adicionar a Favoritos</a></p>
+    {% endfor %}
+
+  </body>
+</html>

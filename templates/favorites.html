@@ -1,0 +1,6 @@
+{% load static %}<!DOCTYPE html>
+{% for pre in personagem %}
+  {{ pre.name }} <br>
+  <img src="{{ pre.image.url }}" width=500px, height=500px> <br>
+  {{ pre.description }} <br>
+{% endfor %}

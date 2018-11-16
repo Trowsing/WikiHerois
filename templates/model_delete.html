@@ -1,0 +1,12 @@
+{% block content %}
+
+<h1>Apagar Registro</h1>
+
+<p>Deseja apagar o registro?</p>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="submit" action="" value="Sim, desejo apagar" />
+  </form>
+
+  <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p>
+{% endblock %}
