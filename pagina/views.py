@@ -42,6 +42,7 @@ def model_delete(request, pk): # Apagar personagens
 
 
 def favorites(request):
+# Listar todos - Definir os favoritos - Mostrar favoritos em favorites.html
     posts = Presentation.objects.all()
     favorites = posts.filter(is_favorite=True)
     if posts.is_favorite:
