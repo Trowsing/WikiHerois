@@ -14,4 +14,5 @@ Aplicações:
 - Edite as informações ou a imagem dos herois em "Editar personagem"
 - Apague os registros que desejar com "Apagar"
 - <--Pendente--> Crie uma lista dos aeus herois favoritos com "Adicionar a Favoritos"
+- Pesquise os herois disponíveis no registro.
 
