@@ -26,7 +26,8 @@ SECRET_KEY = '8i_@4t)28qn6a8rnfo*9rld-&ejfkhkbux6uk!8e)5d7+-6p)e'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'trowsing.pythonanywhere.com'
+    'trowsing.pythonanywhere.com',
+    'localhost',
     ]
 
 
@@ -52,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Herois.urls'
+ROOT_URLCONF = 'pagina.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Herois.wsgi.application'
+WSGI_APPLICATION = 'pagina.wsgi.application'
 
 
 # Database
@@ -124,9 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
-#STATICFILES_DIRS = [
- #   os.path.join(BASE_DIR, 'static'),
-#]
-MEDIA_ROOT = "/home/Trowsing/WikiHerois/media"
-MEDIA_URL = '/media/'
+#STATIC_ROOT = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+MEDIA_ROOT = '/static/media'
+MEDIA_URL = '/static/media/'
