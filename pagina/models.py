@@ -4,11 +4,10 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-class Presentation(models.Model):
+class Heroes(models.Model):
     name = models.CharField(max_length=30, unique=True)
     description = models.TextField(max_length=500)
     image = models.ImageField(blank=True, null=True, default='')
-    """ Não está funcionando """
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):

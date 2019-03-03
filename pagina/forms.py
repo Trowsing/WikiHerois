@@ -1,7 +1,7 @@
 from django import forms
-from .models import Presentation
+from .models import Heroes
 
-class PresentationForm(forms.ModelForm):
+class HeroesForm(forms.ModelForm):
     class Meta:
-        model = Presentation
+        model = Heroes
         fields = ('name', 'description', 'image', )
