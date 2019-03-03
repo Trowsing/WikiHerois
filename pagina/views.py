@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Heroes
 from .forms import HeroesForm
 
-favs = []
 
 def home(request): # Listagem Inicial
     posts = Heroes.objects.all()
@@ -12,6 +11,7 @@ def home(request): # Listagem Inicial
     if query:
         posts = posts.filter(name__icontains=query)
     return render(request, 'home.html', {'posts': posts})
+
 
 def model_upload(request): # Adicionar personagens
     if request.method == 'POST':
@@ -40,15 +40,13 @@ def model_delete(request, pk): # Apagar personagens
 
 
 def add_favorites(request, pk): # Adição de favoritos
-    posts = get_object_or_404(Heroes, pk=pk)
-    if pk in favs:
-        favs.remove(pk)
-        posts.is_favorite=False
-        posts.save()
+    post = get_object_or_404(Heroes, pk=pk)
+    if post.is_favorite:
+        post.is_favorite=False
+        post.save()
     else:
-        favs.append(pk)
-        posts.is_favorite = True
-        posts.save()
+        post.is_favorite = True
+        post.save()
         return redirect('favoritos')
     return redirect('home')
 

@@ -8,12 +8,21 @@
         <p><a href="{% url 'favoritos' %}">Lista de favoritos...</a></p>
       </div>
       {% for pre in posts %}
+
         <h3>{{ pre.name }}</h3> <br>
         <img src="{{ pre.image.url }}" width=500px, height=500px> <br>
+
         {{ pre.description }} <br>
         <p><a href="{% url 'model_edit' pre.id %}">Editar personagem</a></p>
-        <p><a href="/delete/{{pre.id}}">Apagar</a></p>
-        <p><a href="/add_favorites/{{pre.id}}">Adicionar a Favoritos</a></p>
+        <p><a href="{% url 'model_delete' pre.id %}">Apagar personagem</a></p>
+        <!-- <p><a href="/delete/{{pre.id}}">Apagar</a></p> -->
+
+        {% if pre.is_favorite %}
+          <p><a href="/add_favorites/{{pre.id}}">Remover dos Favoritos</a></p>
+        {% else %}
+          <p><a href="/add_favorites/{{pre.id}}">Adicionar a Favoritos</a></p>
+        {% endif %}
+
       {% endfor %}
     </div>
   </div>

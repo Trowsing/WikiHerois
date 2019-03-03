@@ -7,7 +7,7 @@ from django.db import models
 class Heroes(models.Model):
     name = models.CharField(max_length=30, unique=True)
     description = models.TextField(max_length=500)
-    image = models.ImageField(blank=True, null=True, default='')
+    image = models.ImageField(blank=False, null=False, default='')
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
