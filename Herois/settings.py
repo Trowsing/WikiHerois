@@ -25,7 +25,9 @@ SECRET_KEY = '8i_@4t)28qn6a8rnfo*9rld-&ejfkhkbux6uk!8e)5d7+-6p)e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'trowsing.pythonanywhere.com'
+    ]
 
 
 # Application definition
@@ -122,9 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-MEDIA_ROOT = 'media'
+STATIC_ROOT = 'static'
+#STATICFILES_DIRS = [
+ #   os.path.join(BASE_DIR, 'static'),
+#]
+MEDIA_ROOT = "/home/Trowsing/WikiHerois/media"
 MEDIA_URL = '/media/'

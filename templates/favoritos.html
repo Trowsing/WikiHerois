@@ -1,0 +1,15 @@
+{% load static %}<!DOCTYPE html>
+<head>
+  <title>WikiHerois - Favoritos</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<body>
+  <div class="row">
+      <div class="col-md-6">
+        <h1>Favoritos</h1>
+        {% for pre in posts %}
+        {{ pre.name }} <br>
+          <img src="{{ pre.image.url }}" width=500px, height=500px> <br>
+          {{ pre.description }} <br>
+        {% endfor %}
+    <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p>
+</body>

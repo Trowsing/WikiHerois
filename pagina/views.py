@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.urlresolvers import reverse
 from .models import Presentation
-from django import forms
-from django.views.generic import DeleteView
 from .forms import PresentationForm
 
+favs = []
 
 def home(request): # Listagem Inicial
     posts = Presentation.objects.all()
@@ -41,12 +39,21 @@ def model_delete(request, pk): # Apagar personagens
     return redirect('home')
 
 
-def favorites(request):
-# Listar todos - Definir os favoritos - Mostrar favoritos em favorites.html
-    posts = Presentation.objects.all()
-    favorites = posts.filter(is_favorite=True)
-    if posts.is_favorite:
+def add_favorites(request, pk): # Adição de favoritos
+    posts = get_object_or_404(Presentation, pk=pk)
+    if pk in favs:
+        favs.remove(pk)
         posts.is_favorite=False
+        posts.save()
     else:
-        posts.is_favorite=True
-    return render(request, 'home.html', {'posts': posts})
+        favs.append(pk)
+        posts.is_favorite = True
+        posts.save()
+        return redirect('favoritos')
+    return redirect('home')
+
+
+def favoritos(request): # Função para listar favoritos
+    all = Presentation.objects.all()
+    posts = all.filter(is_favorite=True)
+    return render(request, 'favoritos.html', {'posts': posts})
