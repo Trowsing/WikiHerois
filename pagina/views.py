@@ -35,7 +35,9 @@ def model_edit(request, pk): # Edição de personagens
 
 
 def model_delete(request, pk): # Apagar personagens
-    delete_character = get_object_or_404(Heroes, pk=pk).delete()
+    character = Heroes.objects.get(pk=pk)
+    character.image.delete()
+    character.delete()
     return redirect('home')
 
 
