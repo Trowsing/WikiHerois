@@ -36,7 +36,6 @@ def model_edit(request, pk): # Edição de personagens
 
 def model_delete(request, pk): # Apagar personagens
     character = Heroes.objects.get(pk=pk)
-    character.image.delete()
     character.delete()
     return redirect('home')
 
