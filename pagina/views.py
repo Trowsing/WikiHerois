@@ -25,8 +25,9 @@ def model_upload(request): # Adicionar personagens
 
 
 def model_edit(request, pk): # Edição de personagens
-    instance = get_object_or_404(Heroes, pk=pk) # Primary key de cada instancia
-    form = HeroesForm(request.POST or None, request.FILES or None, instance=instance)
+    instance = get_object_or_404(Heroes, pk=pk)
+    form = HeroesForm(request.POST or None, request.FILES or None,
+        instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
         form.save()
@@ -43,13 +44,13 @@ def model_delete(request, pk): # Apagar personagens
 def add_favorites(request, pk): # Adição de favoritos
     post = get_object_or_404(Heroes, pk=pk)
     if post.is_favorite:
-        post.is_favorite=False
+        post.is_favorite = False
         post.save()
+        return redirect('home')
     else:
         post.is_favorite = True
         post.save()
         return redirect('favoritos')
-    return redirect('home')
 
 
 def favoritos(request): # Função para listar favoritos
