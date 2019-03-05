@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}<!DOCTYPE html>
 {% block content %}
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="d-flex justify-content-around">
-        <p><a href="{% url 'model_upload' %}">Adicionar personagem...</a></p>
-        <p><a href="{% url 'favoritos' %}">Lista de favoritos...</a></p>
+  <!-- <div class="row justify-content-center"> -->
+  <div style="text-align:center">
+    <div class="col-md-3">
+      <div style="text-align:center">
+      <!-- <div class="d-flex justify-content-around"> -->
+        <a class="nes-btn" href="{% url 'model_upload' %}">Adicionar personagem...</a>
+        <a class="nes-btn" href="{% url 'favoritos' %}">Lista de favoritos...</a>
       </div>
       {% for pre in posts %}
 
