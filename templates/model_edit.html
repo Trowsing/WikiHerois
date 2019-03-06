@@ -4,9 +4,16 @@
 {% block content %}
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    {{ form.name.label }} <br>
+    {{ form.name }} <br>
+    {{ form.description.label }} <br>
+    {{ form.description }} <br>
+    {{ form.image.label }} <br>
+    {{ form.image }} <br>
     <button type="submit" class="nes-btn is-success">Editar</button>
   </form>
 
   <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p>
+
 {% endblock %}
