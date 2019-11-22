@@ -8,18 +8,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pagina', '0010_auto_20190303_0444'),
+        ("pagina", "0010_auto_20190303_0444"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='heroes',
-            name='description',
+            model_name="heroes",
+            name="description",
             field=models.CharField(max_length=300),
         ),
         migrations.AlterField(
-            model_name='heroes',
-            name='image',
-            field=models.ImageField(upload_to='%Y-%m-%d/'),
+            model_name="heroes",
+            name="image",
+            field=models.ImageField(upload_to="%Y-%m-%d/"),
         ),
     ]

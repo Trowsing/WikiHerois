@@ -9,14 +9,16 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pagina', '0001_initial'),
+        ("pagina", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='presentation',
-            name='image',
-            field=models.ImageField(default=django.utils.timezone.now, upload_to='static/media'),
+            model_name="presentation",
+            name="image",
+            field=models.ImageField(
+                default=django.utils.timezone.now, upload_to="static/media"
+            ),
             preserve_default=False,
         ),
     ]

@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pagina', '0006_auto_20181116_0310'),
+        ("pagina", "0006_auto_20181116_0310"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='presentation',
-            name='description',
+            model_name="presentation",
+            name="description",
             field=models.TextField(max_length=500),
         ),
     ]

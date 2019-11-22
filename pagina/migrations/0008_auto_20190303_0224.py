@@ -8,12 +8,9 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pagina', '0007_auto_20181116_2217'),
+        ("pagina", "0007_auto_20181116_2217"),
     ]
 
     operations = [
-        migrations.RenameModel(
-            old_name='presentation',
-            new_name='Heroes',
-        ),
+        migrations.RenameModel(old_name="presentation", new_name="Heroes",),
     ]

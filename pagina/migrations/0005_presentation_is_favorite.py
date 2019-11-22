@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pagina', '0004_auto_20181114_0112'),
+        ("pagina", "0004_auto_20181114_0112"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='presentation',
-            name='is_favorite',
+            model_name="presentation",
+            name="is_favorite",
             field=models.BooleanField(default=False),
         ),
     ]
