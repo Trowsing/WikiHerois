@@ -4,9 +4,15 @@
 {% block content %}
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Editar</button>
+
+    Nome <br>
+    {{ form.name }} <br>
+    Descrição <br>
+    {{ form.description }} <br>
+    Imagem <br>
+    <div class="nes-input" style="width: 750px;">{{ form.image }}</div> <br>
+    <a href="/" class="nes-btn is-error">Voltar ao Inicio </a>
+    <button type="submit" class="nes-btn is-success">Editar</button>
   </form>
 
-  <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p>
 {% endblock %}

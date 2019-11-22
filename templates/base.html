@@ -3,18 +3,25 @@
   <head>
     <meta charset='utf-8'>
     <title>WikiHerois</title>
-    <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+    <!-- <link rel="stylesheet"
+    href="{{ BASE_DIR }}static/css/bootstrap.min.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+    <style>
+      html, body, pre, code, kbd, samp {
+          font-family: 'Press Start 2P', cursive;
+      }
+    </style>
   </head>
   <body>
     <div class="row justify-content-center">
-        <div class="col-md-6" align="center">
+        <div class="col-md-3" align="center">
           <h1>WikiHerois</h1>
           <form method='GET' action=''>
-            <input type='text' name='pesquisa' placeholder='Pesquisar personagens' value='{{ request.GET.pesquisa }}'/>
-            <input type='submit' value='Pesquisar'/>
+            <input type='text' name='pesquisa' placeholder='Pesquisar personagens...'
+            value='{{ request.GET.pesquisa }}' class="nes-input" style="width: 500px;" />
+            <button type="submit" class="nes-btn is-primary">Pesquisar</button>
+          </form>
         </div>
     </div>
           {% block content %}

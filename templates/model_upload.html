@@ -3,11 +3,30 @@
 {% block title %}WikiHerois - Adicionar Personagem{% endblock %}
 {% block content %}
 
-  <form method="post" enctype="multipart/form-data">
+  <!-- <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Adicionar</button>
+    <button type="submit" class="nes-btn is-success">Adicionar</button>
   </form>
 
-  <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p>
+  <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p> -->
+  {% csrf_token %}
+  <form method="post" enctype="multipart/form-data">
+    <input type='hidden' name='csrfmiddlewaretoken'
+      value='G76C96TEf4PCqWF1eIU4XRBoxHKVWYWX8kSLPXOBUIOwEhpPv3dafkcCFVQNpzDJ' />
+    <p><label for="id_name">Nome:</label> <br>
+      <input type="text" name="name" required id="id_name" maxlength="30"
+        class="nes-input" style="width: 500px;" /></p>
+    <p><label for="id_description">Descrição:</label> <br>
+      <textarea name="description" id="id_description" required rows="10"
+        cols="40" maxlength="300" class="nes-textarea" style="width: 600px;"></textarea></p>
+    <p><label for="id_image">Imagem:</label> <br>
+      <input type="file" name="image" required id="id_image"
+        class="nes-input" style="width: 750px;" /></p>
+    <div>
+      <a href="/" class="nes-btn is-error">Voltar ao Inicio </a>
+      <button type="submit" class="nes-btn is-success">Adicionar</button>
+    </div>
+  </form>
+
 {% endblock %}

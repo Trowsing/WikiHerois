@@ -1,29 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}<!DOCTYPE html>
 {% block content %}
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="d-flex justify-content-around">
-        <p><a href="{% url 'model_upload' %}">Adicionar personagem...</a></p>
-        <p><a href="{% url 'favoritos' %}">Lista de favoritos...</a></p>
+  <!-- <div class="row justify-content-center"> -->
+  <div align="center" >
+    <div class="col-md-3">
+      <div style="text-align:center">
+      <!-- <div class="d-flex justify-content-around"> -->
+        <a class="nes-btn is-success" href="{% url 'model_upload' %}">Adicionar personagem...</a>
+        <a class="nes-btn is-warning" href="{% url 'favoritos' %}">Lista de favoritos...</a>
       </div>
-      {% for pre in posts %}
 
+      {% for pre in posts %}
+      <div class="nes-container is-rounded" style="width:700px;" align="center">
         <h3>{{ pre.name }}</h3> <br>
         <img src="{{ pre.image.url }}" width=500px, height=500px> <br>
 
+        <div class="nes-container is-rounded" style="width:600px;">
         {{ pre.description }} <br>
-        <p><a href="{% url 'model_edit' pre.id %}">Editar personagem</a></p>
-        <p><a href="{% url 'model_delete' pre.id %}">Apagar personagem</a></p>
+        </div>
+        <p><a class="nes-btn is-primary" href="{% url 'model_edit' pre.id %}">Editar personagem</a></p>
+        <p><a class="nes-btn is-error" href="{% url 'model_delete' pre.id %}">Apagar personagem</a></p>
         <!-- <p><a href="/delete/{{pre.id}}">Apagar</a></p> -->
 
         {% if pre.is_favorite %}
-          <p><a href="/add_favorites/{{pre.id}}">Remover dos Favoritos</a></p>
+          <p><a class="nes-btn is-warning" href="/add_favorites/{{pre.id}}">Remover dos Favoritos</a></p>
         {% else %}
-          <p><a href="/add_favorites/{{pre.id}}">Adicionar a Favoritos</a></p>
+          <p><a class="nes-btn is-success" href="/add_favorites/{{pre.id}}">Adicionar a Favoritos</a></p>
         {% endif %}
-
+      </div>
       {% endfor %}
+
     </div>
   </div>
 {% endblock %}

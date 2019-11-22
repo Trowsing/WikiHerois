@@ -6,8 +6,8 @@ from django.db import models
 
 class Heroes(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    description = models.TextField(max_length=500)
-    image = models.ImageField(blank=False, null=False, default='')
+    description = models.TextField(max_length=300)
+    image = models.ImageField(upload_to="%Y-%m-%d/")
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
