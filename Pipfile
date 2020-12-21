@@ -8,8 +8,8 @@ pylint = "*"
 black = "*"
 
 [packages]
-Pillow = "==6.2.1"
-Django = "==1.11.29"
+Pillow = ">=7.1.0"
+Django = ">=1.11.29"
 
 [requires]
 python_version = "3.6"
