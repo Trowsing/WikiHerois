@@ -3,17 +3,8 @@
 {% block title %}WikiHerois - Adicionar Personagem{% endblock %}
 {% block content %}
 
-  <!-- <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="nes-btn is-success">Adicionar</button>
-  </form>
-
-  <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p> -->
-  {% csrf_token %}
   <form method="post" enctype="multipart/form-data">
-    <input type='hidden' name='csrfmiddlewaretoken'
-      value='G76C96TEf4PCqWF1eIU4XRBoxHKVWYWX8kSLPXOBUIOwEhpPv3dafkcCFVQNpzDJ' />
+    {% csrf_token %}
     <p><label for="id_name">Nome:</label> <br>
       <input type="text" name="name" required id="id_name" maxlength="30"
         class="nes-input" style="width: 500px;" /></p>
