@@ -1,27 +1,39 @@
-{% load static %}<!DOCTYPE html>
-<head>
-  <title>WikiHerois - Favoritos</title>
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-  <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
-  <style>
-    html, body, pre, code, kbd, samp {
-        font-family: 'Press Start 2P', cursive;
-    }
-  </style>
-</head>
-<body>
-  <div class="row">
-      <div class="col-md-6">
-        <h1>Favoritos</h1>
-        {% for pre in posts %}
-        {{ pre.name }} <br>
-          <img src="{{ pre.image.url }}" width=500px, height=500px> <br>
-          {{ pre.description }} <br>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}WikiHerois - Favoritos{% endblock %}
+{% block content %}
+  <div align="center">
+    <div class="col-md-3">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h1>Personagens Favoritos</h1>
+      </div>
 
-          {% if pre.is_favorite %}
-            <p><a href="/add_favorites/{{pre.id}}">Remover dos Favoritos</a></p>
-          {% endif %}
+      {% if not posts %}
+        <div class="nes-container is-rounded" style="width: 700px; margin-bottom: 2.5rem;" align="center">
+          <p>Nenhum personagem favoritado ainda.</p>
+        </div>
+      {% endif %}
 
-        {% endfor %}
-    <p><a href="{% url 'home' %}">Voltar ao Inicio</a></p>
-</body>
+      {% for pre in posts %}
+      <div class="nes-container is-rounded" style="width: 700px; margin-bottom: 2.5rem;" align="center">
+        <h3>{{ pre.name }}</h3>
+        <img src="{{ pre.image.url }}" width=500px, height=500px style="margin: 1rem 0;">
+
+        <div class="nes-container is-rounded" style="width: 600px; margin: 1.5rem 0;">
+          {{ pre.description }}
+        </div>
+        
+        <div style="margin-top: 1.5rem;">
+          <a class="nes-btn is-primary" href="{% url 'model_edit' pre.id %}" style="margin: 0.5rem;">Editar personagem</a>
+          <a class="nes-btn is-error" href="{% url 'model_delete' pre.id %}" style="margin: 0.5rem;">Apagar personagem</a>
+          <a class="nes-btn is-warning" href="/add_favorites/{{pre.id}}" style="margin: 0.5rem;">Remover dos Favoritos</a>
+        </div>
+      </div>
+      {% endfor %}
+      
+      <div style="margin-top: 2rem;">
+        <a href="{% url 'home' %}" class="nes-btn is-primary">Voltar para a lista</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
