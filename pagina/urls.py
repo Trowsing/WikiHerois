@@ -1,19 +1,18 @@
-from django.conf.urls import url
+from django.urls import path, re_path
 from django.conf.urls.static import static
 from pagina import settings
 from django.contrib import admin
-from django.views.static import serve
 
 from pagina import views
 
 urlpatterns = [
-    url(r"^$", views.home, name="home"),
-    url(r"^admin/", admin.site.urls),
-    url(r"^upload/", views.model_upload, name="model_upload"),
-    url(r"^edit/(?P<pk>\d+)", views.model_edit, name="model_edit"),
-    url(r"^delete/(?P<pk>\d+)", views.model_delete, name="model_delete"),
-    url(r"^add_favorites/(?P<pk>\d+)", views.add_favorites, name="add_favorites"),
-    url(r"^favoritos/", views.favoritos, name="favoritos"),
+    re_path(r"^$", views.home, name="home"),
+    path("admin/", admin.site.urls),
+    re_path(r"^upload/", views.model_upload, name="model_upload"),
+    re_path(r"^edit/(?P<pk>\d+)", views.model_edit, name="model_edit"),
+    re_path(r"^delete/(?P<pk>\d+)", views.model_delete, name="model_delete"),
+    re_path(r"^add_favorites/(?P<pk>\d+)", views.add_favorites, name="add_favorites"),
+    re_path(r"^favoritos/", views.favoritos, name="favoritos"),
 ]
 
 if settings.DEBUG:
