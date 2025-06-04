@@ -1,0 +1,192 @@
+/* Theme variables for WikiHerois */
+
+/* Light Theme (Default) */
+:root {
+  --background-color: #ffffff;
+  --text-color: #212529;
+  --container-bg: #fff;
+  --container-border: #000;
+  --input-bg: #fff;
+  --input-text: #212529;
+  --input-border: #a9a9a9;
+  --input-focus-border: #209cee;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --btn-primary-bg: #209cee;
+  --btn-primary-text: #fff;
+  --btn-success-bg: #92cc41;
+  --btn-success-text: #fff;
+  --btn-warning-bg: #f7d51d;
+  --btn-warning-text: #212529;
+  --btn-error-bg: #e76e55;
+  --btn-error-text: #fff;
+  --header-color: #000;
+  --image-border: #ddd;
+  --image-shadow: rgba(0, 0, 0, 0.1);
+  --hero-card-shadow: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Theme */
+.dark-theme {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --container-bg: #1e1e1e;
+  --container-border: #444;
+  --input-bg: #2d2d2d;
+  --input-text: #e0e0e0;
+  --input-border: #555;
+  --input-focus-border: #62a9ff;
+  --link-color: #62a9ff;
+  --link-hover-color: #90c2ff;
+  --btn-primary-bg: #0078d4;
+  --btn-primary-text: #fff;
+  --btn-success-bg: #5a803a;
+  --btn-success-text: #fff;
+  --btn-warning-bg: #c7a618;
+  --btn-warning-text: #fff;
+  --btn-error-bg: #b84a3a;
+  --btn-error-text: #fff;
+  --header-color: #e0e0e0;
+  --image-border: #444;
+  --image-shadow: rgba(0, 0, 0, 0.5);
+  --hero-card-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Apply theme variables to elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-color);
+  transition: color 0.3s ease;
+}
+
+.nes-container {
+  background-color: var(--container-bg);
+  border-color: var(--container-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Enhanced styling for hero cards */
+.nes-container.is-rounded {
+  box-shadow: 0 4px 8px var(--hero-card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.nes-container.is-rounded:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px var(--hero-card-shadow);
+}
+
+/* Enhanced input styling */
+.nes-input {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border-color: var(--input-border);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nes-input:focus {
+  border-color: var(--input-focus-border);
+  outline: none;
+}
+
+.dark-theme .nes-input::placeholder {
+  color: #aaa;
+}
+
+/* Better image styling in both themes with enhanced dark mode */
+img {
+  border: 3px solid var(--image-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px var(--image-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-theme img {
+  filter: brightness(0.95);
+}
+
+a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Style for theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  cursor: pointer;
+  padding: 8px;
+  border: none;
+  background: none;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+.theme-toggle:focus {
+  outline: none;
+}
+
+/* Custom styles for NES.css buttons with transitions */
+.nes-btn {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.nes-btn:hover {
+  transform: translateY(-2px);
+}
+
+.nes-btn:active {
+  transform: translateY(1px);
+}
+
+/* Custom styles for NES.css buttons in dark mode */
+.dark-theme .nes-btn.is-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.dark-theme .nes-btn.is-success {
+  background-color: var(--btn-success-bg);
+  color: var(--btn-success-text);
+}
+
+.dark-theme .nes-btn.is-warning {
+  background-color: var(--btn-warning-bg);
+  color: var(--btn-warning-text);
+}
+
+.dark-theme .nes-btn.is-error {
+  background-color: var(--btn-error-bg);
+  color: var(--btn-error-text);
+}
+
+/* Enhanced contrast for text in containers in dark mode */
+.dark-theme .nes-container {
+  color: var(--text-color);
+}
+
+/* Search form enhancements */
+form[method='GET'] {
+  margin-bottom: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.dark-theme form[method='GET'] .nes-input {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
